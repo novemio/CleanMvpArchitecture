@@ -1,0 +1,51 @@
+[][]: # - 
+
+ []
+ 
+ +
+
+# Commit message should look like this:
+#
+# [HEADER]: #ID - SUBJECT
+#
+#	[ISSUE URL_#1]
+#	[ISSUE URL_#2]
+#	.
+#	.
+#	.
+#	[ISSUE URL_#N]
+#
+#	+ Explanation what is done #1
+#	+ Explanation what is done #2
+#	.
+#	.
+#	.
+#	+ Explanation what is done #N
+#
+# Help:
+#
+# HEADER:
+#	- [PREFIX][CATEGORY_#1/CATEGORY_#2/.../CATEGORY_#N][SUB_CATEGORY_#1/SUB_CATEGORY_#2]: Standard commit.     
+#	- [PROJECT]: Meta-Data of whole project has been updated (e.g. Version). 
+#
+# 	PREFIX:
+#		- ADD: New Feture or New Task is implemented. Header with this prefix CAN contain SUB_CATEGORY.
+#		- UPDATE: Code is Refactored. Header with this prefix CAN contain SUB_CATEGORY, but SHOULD NOT #ID and REDMINE URL.
+#		- FIX: Bug (issue) is fixed. Header with this prefix SHOULD NOT contain SUB_CATEGORY.
+#
+# 	CATEGORY:
+#		- NETWORK: Change made on classes regarding Network feature.
+#		- SETTINGS: Change made on classes regarding Settings feature.
+#		- ACCOUNT: Change made on classes regarding Account feature.
+#		- BL: Change made on classes regarding Business Logic.
+#		- ALL: Change made on all classes or most of them.
+
+# 	SUB_CATEGORY:
+#		- UI: User interface is added or updated.
+#		- UX: User experience or functionality is added or updated. 
+#
+# #ID: ID of GitHub Task, Feature or Bug
+# 
+# SUBJECT: Github issue Subject or short descriton about Commit.
+#
+
