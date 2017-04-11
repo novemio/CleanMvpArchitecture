@@ -90,7 +90,7 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
         }
     }
 
-    private void showSnackBar(String message) {
+    protected void showSnackBar(String message) {
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
                 message, Snackbar.LENGTH_SHORT);
         View sbView = snackbar.getView();
@@ -131,7 +131,7 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
 
     @Override
     public void openActivityOnTokenExpire() {
-        //startActivity(LoginActivity.getStartIntent(this));
+        // TODO: 4/10/17
         finish();
     }
 
@@ -142,9 +142,9 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
     @Override
     protected void onDestroy() {
 
-        //if (mUnBinder != null) {
-        //    mUnBinder.unbind();
-        //}
+        if (mUnBinder != null) {
+            mUnBinder.unbind();
+        }
         super.onDestroy();
     }
 

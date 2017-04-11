@@ -5,7 +5,7 @@
 
 ### Setup git message template
 ```
- cd (path to project)/app
+ cd (path to project)
  git config commit.template config/.gitmessage
 
 ```

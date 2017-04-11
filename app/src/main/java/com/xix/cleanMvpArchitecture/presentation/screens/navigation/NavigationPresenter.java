@@ -23,8 +23,8 @@ public class NavigationPresenter<V extends NavigationMvpView> extends BasePresen
         super(dataManager, compositeDisposable);
     }
 
-    @Override public void onStart() {
-        Log.d(LOG_TAG, "onStart: ");
+    @Override public void getItems() {
+        Log.d(LOG_TAG, "getItems: ");
         UseCase<List<Item>> items = getDataManager().getItems();
         getCompositeDisposable().add(items.execute(new DefaultObserver<List<Item>>() {
             @Override public void onNext(List<Item> items) {

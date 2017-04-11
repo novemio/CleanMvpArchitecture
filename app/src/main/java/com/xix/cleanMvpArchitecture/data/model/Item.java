@@ -11,7 +11,9 @@ public class Item implements Parcelable {
     @SerializedName("description") @Expose private String mDescription;
     @SerializedName("title") @Expose private String mTitle;
 
-    public String getImage() {
+    private int mDominantColor = 0;
+
+    public String getImageUrl() {
         return mImageUrl;
     }
 
@@ -35,6 +37,14 @@ public class Item implements Parcelable {
         this.mTitle = title;
     }
 
+    public int getDominantColor() {
+        return mDominantColor;
+    }
+
+    public void setDominantColor(int dominantColor) {
+        mDominantColor = dominantColor;
+    }
+
     @Override public int describeContents() {
         return 0;
     }
@@ -43,6 +53,7 @@ public class Item implements Parcelable {
         dest.writeString(this.mImageUrl);
         dest.writeString(this.mDescription);
         dest.writeString(this.mTitle);
+        dest.writeInt(this.mDominantColor);
     }
 
     public Item() {
@@ -52,6 +63,7 @@ public class Item implements Parcelable {
         this.mImageUrl = in.readString();
         this.mDescription = in.readString();
         this.mTitle = in.readString();
+        this.mDominantColor = in.readInt();
     }
 
     public static final Parcelable.Creator<Item> CREATOR = new Parcelable.Creator<Item>() {
@@ -65,6 +77,18 @@ public class Item implements Parcelable {
     };
 
     @Override public String toString() {
-        return "Item{" + "mImageUrl='" + mImageUrl + '\'' + ", mDescription='" + mDescription + '\'' + ", mTitle='" + mTitle + '\'' + '}';
+        return "Item{"
+            + "mImageUrl='"
+            + mImageUrl
+            + '\''
+            + ", mDescription='"
+            + mDescription
+            + '\''
+            + ", mTitle='"
+            + mTitle
+            + '\''
+            + ", mDominantColor="
+            + mDominantColor
+            + '}';
     }
 }

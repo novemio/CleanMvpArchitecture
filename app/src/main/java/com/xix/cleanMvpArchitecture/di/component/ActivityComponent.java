@@ -2,6 +2,7 @@ package com.xix.cleanMvpArchitecture.di.component;
 
 import com.xix.cleanMvpArchitecture.di.PerActivity;
 import com.xix.cleanMvpArchitecture.di.module.ActivityModule;
+import com.xix.cleanMvpArchitecture.presentation.screens.itemDetails.ItemDetailsActivity;
 import com.xix.cleanMvpArchitecture.presentation.screens.navigation.NavigationActivity;
 import dagger.Component;
 
@@ -15,4 +16,5 @@ public interface ActivityComponent {
 
     void inject(NavigationActivity activity);
 
+    void inject(ItemDetailsActivity itemDetailsActivity);
 }

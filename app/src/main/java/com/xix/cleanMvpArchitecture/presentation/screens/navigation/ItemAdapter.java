@@ -27,6 +27,12 @@ public class ItemAdapter extends RecyclerViewAdapterBase<Item, ItemView> {
     @Override public void onBindViewHolder(ViewWrapper<ItemView> holder, int position) {
         ItemView view = holder.getView();
         Item item = getItem(position);
+
+        view.setOnClickListener(v -> {
+            if (clickListener != null) {
+                clickListener.onItemClick(item);
+            }
+        });
         view.bind(item);
     }
 }
