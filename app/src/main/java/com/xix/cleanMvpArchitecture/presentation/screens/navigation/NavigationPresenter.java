@@ -25,10 +25,12 @@ public class NavigationPresenter<V extends NavigationMvpView> extends BasePresen
 
     @Override public void getItems() {
         Log.d(LOG_TAG, "getItems: ");
+        getMvpView().showLoading();
         UseCase<List<Item>> items = getDataManager().getItems();
         getCompositeDisposable().add(items.execute(new DefaultObserver<List<Item>>() {
             @Override public void onNext(List<Item> items) {
                 getMvpView().setItemList(items);
+                getMvpView().hideLoading();
             }
         }));
     }
