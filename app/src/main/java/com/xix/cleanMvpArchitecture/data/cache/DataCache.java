@@ -16,7 +16,7 @@ public interface DataCache {
     boolean isExpired();
     boolean isCached(int id);
 
-    boolean isItemsCached();
+    boolean isItemListCached();
 
 
     void  clearAll();

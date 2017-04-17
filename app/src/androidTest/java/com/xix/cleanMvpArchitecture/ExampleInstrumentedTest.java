@@ -20,6 +20,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.xix.mvpprojectconfiguration", appContext.getPackageName());
+        assertEquals("com.xix.cleanMvpArchitecture", appContext.getPackageName());
     }
 }

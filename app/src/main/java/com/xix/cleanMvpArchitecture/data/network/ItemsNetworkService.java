@@ -7,7 +7,7 @@ import retrofit2.Response;
 import retrofit2.http.GET;
 
 /**
- * Created by 8 on 12.09.2016.
+ * Created by xix on 12.09.2016.
  */
 public interface ItemsNetworkService {
 

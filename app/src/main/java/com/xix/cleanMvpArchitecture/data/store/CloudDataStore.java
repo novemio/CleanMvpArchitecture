@@ -15,9 +15,9 @@ public class CloudDataStore implements DataStore {
     private RestClient mRestClient;
     private DataCache mDataCache;
 
-    public CloudDataStore(DataCache dataCache) {
+    public CloudDataStore(DataCache dataCache,RestClient restClient) {
         mDataCache = dataCache;
-        mRestClient = RestClient.getInstance();
+        mRestClient = restClient;
     }
 
     @Override public Observable<List<Item>> getItems() {

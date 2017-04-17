@@ -13,7 +13,7 @@ import javax.inject.Singleton;
 @Singleton
 public class UIThread implements PostExecutionThread {
 
-    @Inject UIThread() {
+    @Inject public UIThread() {
     }
 
     @Override public Scheduler getScheduler() {

@@ -20,13 +20,11 @@ import javax.inject.Singleton;
 @Singleton
 public class DataManagerImpl implements DataManager {
     private Context mContext;
-    private DbHelper mDbHelper;
     private DataStoreFactory mMDataStoreFactory;
     private PostExecutionThread mPostExecutionThread;
 
-    @Inject public DataManagerImpl(@ApplicationContext Context context, DbHelper dbHelper, DataStoreFactory mDataStoreFactory, PostExecutionThread postExecutionThread) {
+    @Inject public DataManagerImpl(@ApplicationContext Context context, DataStoreFactory mDataStoreFactory, PostExecutionThread postExecutionThread) {
         mContext = context;
-        mDbHelper = dbHelper;
         mMDataStoreFactory = mDataStoreFactory;
         mPostExecutionThread = postExecutionThread;
     }

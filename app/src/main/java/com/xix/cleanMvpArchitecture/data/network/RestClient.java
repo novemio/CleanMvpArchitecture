@@ -28,9 +28,6 @@ public class RestClient {
         return instance;
     }
 
-    public ItemsNetworkService getItemsNetworkService(){
-        return mItemsNetworkService;
-    }
 
     private RestClient() {
         if (mItemsNetworkService == null) {

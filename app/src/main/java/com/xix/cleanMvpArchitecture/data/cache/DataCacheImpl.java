@@ -39,7 +39,7 @@ public class DataCacheImpl implements DataCache {
     /**
      * Constructor of the class {@link DataCacheImpl}.
      *
-     * @param context A
+     * @param context {@link ApplicationContext}
      * @param serializer {@link Serializer} for object serialization.
      * @param fileManager {@link FileManager} for saving serialized objects to the file system.
      */
@@ -56,11 +56,11 @@ public class DataCacheImpl implements DataCache {
 
     @Override public Observable<List<Item>> getItemList() {
         return Observable.create(emitter -> {
-            final File userEntityFile = DataCacheImpl.this.buildFile(ITEM_LIST_ID);
-            final String fileContent = DataCacheImpl.this.fileManager.readFileContent(userEntityFile);
+            final File userEntityFile = buildFile(ITEM_LIST_ID);
+            final String fileContent = fileManager.readFileContent(userEntityFile);
 
             Type listType = new TypeToken<ArrayList<Item>>() {}.getType();
-            final List<Item> itemList = DataCacheImpl.this.serializer.deserialize(fileContent, listType);
+            final List<Item> itemList = serializer.deserialize(fileContent, listType);
 
             if (itemList != null) {
                 emitter.onNext(itemList);
@@ -76,7 +76,7 @@ public class DataCacheImpl implements DataCache {
         chechNotNull(itemList);
         final File userEntityFile = this.buildFile(ITEM_LIST_ID);
         if (!isCached(ITEM_LIST_ID)) {
-            final String jsonString = this.serializer.serialize(itemList);
+            final String jsonString = serializer.serialize(itemList);
             this.executeAsynchronously(new CacheWriter(this.fileManager, userEntityFile, jsonString));
             this.setLastCacheUpdateTimeMillis();
         }
@@ -101,10 +101,10 @@ public class DataCacheImpl implements DataCache {
 
     @Override public boolean isCached(int id) {
         final File userEntityFile = this.buildFile(id);
-        return this.fileManager.exists(userEntityFile);
+        return fileManager.exists(userEntityFile);
     }
 
-    @Override public boolean isItemsCached() {
+    @Override public boolean isItemListCached() {
         return isCached(ITEM_LIST_ID);
     }
 
@@ -133,7 +133,7 @@ public class DataCacheImpl implements DataCache {
      */
     private void setLastCacheUpdateTimeMillis() {
         final long currentMillis = System.currentTimeMillis();
-        this.fileManager.writeToPreferences(this.context, SETTINGS_FILE_NAME, SETTINGS_KEY_LAST_CACHE_UPDATE, currentMillis);
+        fileManager.writeToPreferences(this.context, SETTINGS_FILE_NAME, SETTINGS_KEY_LAST_CACHE_UPDATE, currentMillis);
     }
 
     /**
