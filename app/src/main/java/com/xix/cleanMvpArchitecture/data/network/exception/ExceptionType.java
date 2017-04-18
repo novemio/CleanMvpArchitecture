@@ -1,0 +1,6 @@
+package com.xix.cleanMvpArchitecture.data.network.exception;
+
+public enum ExceptionType {
+  INVALID_CREDENTIALS, NOT_FOUND, ALREADY_EXITS,
+  USER_NOT_ACTIVATED, ZERO_GATEWAYS, BAD_REQUEST, NOT_AUTHORIZED, SERVER_ERROR, MISSING_PARAMETRS
+}
